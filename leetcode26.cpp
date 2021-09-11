@@ -4,7 +4,7 @@
 #include <stack>
 
 using namespace std;
-//É¾³ıÊı×éÖĞÖØ¸´ÔªËØ
+//åˆ é™¤æœ‰åºæ•°ç»„ä¸­çš„é‡å¤é¡¹
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
@@ -21,14 +21,14 @@ public:
 class DALAO{
 public:
     int removeDuplicates(vector<int>& nums) {
-        if (nums.empty()) return 0; // ±ğÍü¼Ç¿ÕÊı×éµÄÅĞ¶Ï
+        if (nums.empty()) return 0; // åˆ«å¿˜è®°ç©ºæ•°ç»„çš„åˆ¤æ–­
         int slowIndex = 0;
         for (int fastIndex = 0; fastIndex < (nums.size() - 1); fastIndex++) {
-            if (nums[fastIndex] != nums[fastIndex + 1]) { // ·¢ÏÖºÍºóÒ»¸ö²»ÏàÍ¬
-                nums[++slowIndex] = nums[fastIndex + 1]; //slowIndex = 0 µÄÊı¾İÒ»¶¨ÊÇ²»ÖØ¸´µÄ£¬ËùÒÔÖ±½Ó ++slowIndex
-            }//ÔõÃ´Àí½â£¿£¿¾ÍÊÇ°ÑÓöµ½µÄµÚÒ»¸ö²»ÖØ¸´µÄ·ÅÔÚÊı×éÖĞ£¬ÕâÀïÄ¬ÈÏnums[0]¾ÍÊÇ²»ÖØ¸´µÄ
+            if (nums[fastIndex] != nums[fastIndex + 1]) { // å‘ç°å’Œåä¸€ä¸ªä¸ç›¸åŒ
+                nums[++slowIndex] = nums[fastIndex + 1]; //slowIndex = 0 çš„æ•°æ®ä¸€å®šæ˜¯ä¸é‡å¤çš„ï¼Œæ‰€ä»¥ç›´æ¥ ++slowIndex
+            }//æ€ä¹ˆç†è§£ï¼Ÿï¼Ÿå°±æ˜¯æŠŠé‡åˆ°çš„ç¬¬ä¸€ä¸ªä¸é‡å¤çš„æ”¾åœ¨æ•°ç»„ä¸­ï¼Œè¿™é‡Œé»˜è®¤nums[0]å°±æ˜¯ä¸é‡å¤çš„
         }
-        return slowIndex + 1; //±ğÍüÁËslowIndexÊÇ´Ó0¿ªÊ¼µÄ£¬ËùÒÔ·µ»ØslowIndex + 1
+        return slowIndex + 1; //åˆ«å¿˜äº†slowIndexæ˜¯ä»0å¼€å§‹çš„ï¼Œæ‰€ä»¥è¿”å›slowIndex + 1
     }
 };
 
