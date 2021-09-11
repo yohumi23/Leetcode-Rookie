@@ -4,10 +4,10 @@
 #include <stack>
 #include <string>
 using namespace std;
-
+//é•¿åº¦æœ€å°çš„å­æ•°ç»„
 class Solution {
 public:
-    //±©Á¦½â·¨
+    //æš´åŠ›è§£æ³•
     int minSubArrayLen1(int target, vector<int>& nums) {
         int length, minLength = INT32_MAX;
         int sum;
@@ -27,7 +27,7 @@ public:
         return (minLength == INT32_MAX ? 0 : minLength);
     }
 
-    //»¬¶¯´°¿Ú
+    //æ»‘åŠ¨çª—å£
     int minSubArrayLen2(int target, vector<int>& nums) {
         int result = INT32_MAX;
         int sublength = 0, sum = 0;
@@ -49,38 +49,38 @@ public:
 class Instruction {
 public:
     int minSubArrayLen3(int s, vector<int>& nums) {
-        int result = INT32_MAX; // ×îÖÕµÄ½á¹û
-        int sum = 0; // ×ÓĞòÁĞµÄÊıÖµÖ®ºÍ
-        int subLength = 0; // ×ÓĞòÁĞµÄ³¤¶È
-        for (int i = 0; i < nums.size(); i++) { // ÉèÖÃ×ÓĞòÁĞÆğµãÎªi
+        int result = INT32_MAX; // æœ€ç»ˆçš„ç»“æœ
+        int sum = 0; // å­åºåˆ—çš„æ•°å€¼ä¹‹å’Œ
+        int subLength = 0; // å­åºåˆ—çš„é•¿åº¦
+        for (int i = 0; i < nums.size(); i++) { // è®¾ç½®å­åºåˆ—èµ·ç‚¹ä¸ºi
             sum = 0;
-            for (int j = i; j < nums.size(); j++) { // ÉèÖÃ×ÓĞòÁĞÖÕÖ¹Î»ÖÃÎªj
+            for (int j = i; j < nums.size(); j++) { // è®¾ç½®å­åºåˆ—ç»ˆæ­¢ä½ç½®ä¸ºj
                 sum += nums[j];
-                if (sum >= s) { // Ò»µ©·¢ÏÖ×ÓĞòÁĞºÍ³¬¹ıÁËs£¬¸üĞÂresult
-                    subLength = j - i + 1; // È¡×ÓĞòÁĞµÄ³¤¶È
+                if (sum >= s) { // ä¸€æ—¦å‘ç°å­åºåˆ—å’Œè¶…è¿‡äº†sï¼Œæ›´æ–°result
+                    subLength = j - i + 1; // å–å­åºåˆ—çš„é•¿åº¦
                     result = result < subLength ? result : subLength;
-                    break; // ÒòÎªÎÒÃÇÊÇÕÒ·ûºÏÌõ¼ş×î¶ÌµÄ×ÓĞòÁĞ£¬ËùÒÔÒ»µ©·ûºÏÌõ¼ş¾Íbreak
+                    break; // å› ä¸ºæˆ‘ä»¬æ˜¯æ‰¾ç¬¦åˆæ¡ä»¶æœ€çŸ­çš„å­åºåˆ—ï¼Œæ‰€ä»¥ä¸€æ—¦ç¬¦åˆæ¡ä»¶å°±break
                 }
             }
         }
-        // Èç¹ûresultÃ»ÓĞ±»¸³ÖµµÄ»°£¬¾Í·µ»Ø0£¬ËµÃ÷Ã»ÓĞ·ûºÏÌõ¼şµÄ×ÓĞòÁĞ
+        // å¦‚æœresultæ²¡æœ‰è¢«èµ‹å€¼çš„è¯ï¼Œå°±è¿”å›0ï¼Œè¯´æ˜æ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„å­åºåˆ—
         return result == INT32_MAX ? 0 : result;
     }
     int minSubArrayLen4(int s, vector<int>& nums) {
         int result = INT32_MAX;
-        int sum = 0; // »¬¶¯´°¿ÚÊıÖµÖ®ºÍ
-        int i = 0; // »¬¶¯´°¿ÚÆğÊ¼Î»ÖÃ
-        int subLength = 0; // »¬¶¯´°¿ÚµÄ³¤¶È
+        int sum = 0; // æ»‘åŠ¨çª—å£æ•°å€¼ä¹‹å’Œ
+        int i = 0; // æ»‘åŠ¨çª—å£èµ·å§‹ä½ç½®
+        int subLength = 0; // æ»‘åŠ¨çª—å£çš„é•¿åº¦
         for (int j = 0; j < nums.size(); j++) {
             sum += nums[j];
-            // ×¢ÒâÕâÀïÊ¹ÓÃwhile£¬Ã¿´Î¸üĞÂ i£¨ÆğÊ¼Î»ÖÃ£©£¬²¢²»¶Ï±È½Ï×ÓĞòÁĞÊÇ·ñ·ûºÏÌõ¼ş
+            // æ³¨æ„è¿™é‡Œä½¿ç”¨whileï¼Œæ¯æ¬¡æ›´æ–° iï¼ˆèµ·å§‹ä½ç½®ï¼‰ï¼Œå¹¶ä¸æ–­æ¯”è¾ƒå­åºåˆ—æ˜¯å¦ç¬¦åˆæ¡ä»¶
             while (sum >= s) {
-                subLength = (j - i + 1); // È¡×ÓĞòÁĞµÄ³¤¶È
+                subLength = (j - i + 1); // å–å­åºåˆ—çš„é•¿åº¦
                 result = result < subLength ? result : subLength;
-                sum -= nums[i++]; // ÕâÀïÌåÏÖ³ö»¬¶¯´°¿ÚµÄ¾«ËèÖ®´¦£¬²»¶Ï±ä¸üi£¨×ÓĞòÁĞµÄÆğÊ¼Î»ÖÃ£©
+                sum -= nums[i++]; // è¿™é‡Œä½“ç°å‡ºæ»‘åŠ¨çª—å£çš„ç²¾é«“ä¹‹å¤„ï¼Œä¸æ–­å˜æ›´iï¼ˆå­åºåˆ—çš„èµ·å§‹ä½ç½®ï¼‰
             }
         }
-        // Èç¹ûresultÃ»ÓĞ±»¸³ÖµµÄ»°£¬¾Í·µ»Ø0£¬ËµÃ÷Ã»ÓĞ·ûºÏÌõ¼şµÄ×ÓĞòÁĞ
+        // å¦‚æœresultæ²¡æœ‰è¢«èµ‹å€¼çš„è¯ï¼Œå°±è¿”å›0ï¼Œè¯´æ˜æ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„å­åºåˆ—
         return result == INT32_MAX ? 0 : result;
     }
 };
