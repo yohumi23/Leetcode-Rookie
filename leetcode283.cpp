@@ -4,7 +4,7 @@
 #include <stack>
 
 using namespace std;
-
+//整体思路，先不管0，最后填0
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
