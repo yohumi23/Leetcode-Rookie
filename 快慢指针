@@ -1,0 +1,5 @@
+LeetCode26删除有序数组中的重复
+总结如下：
+首先第一个元素默认是有序的，我们用slowIndex从0到N（不重复的新数组的项数）添加；
+其次是我们用fastIndex和fastIndex++比较，若相同把后面的放到新数组中；
+最后是我们用array[++slowIndex]，所以返回的是slowIndex++;
